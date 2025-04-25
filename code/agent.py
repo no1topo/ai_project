@@ -62,7 +62,7 @@ class Agent:
         """
         Run n simulations of the MCTS algorithm. This function gets called every move.
         """
-        print(f"Running {n} simulations...")
+        # print(f"Running {n} simulations...")
         self.mcts.run_simulations(n)
 
     def save_model(self, timestamped: bool = False):

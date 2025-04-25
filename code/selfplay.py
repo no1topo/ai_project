@@ -115,14 +115,14 @@ if __name__ == "__main__":
 
     # ======== if not in docker, run multiple processes here: ========
     # the amount of games to play simultaneously
-    # p_count = 1
+    p_count = 8
 
-    # with Pool(processes=p_count) as pool:
-    #     pool.map(self_play, [None for _ in range(p_count)])
+    with Pool(processes=p_count) as pool:
+        pool.map(self_play, [None for _ in range(p_count)])
 
     # multiprocessed puzzle solver
-    # with Pool(processes=p_count) as pool:
-    #     puzzles = Game.create_puzzle_set(filename="puzzles/lichess_db_puzzle.csv", type="mateIn1")
-    #     pool.map(puzzle_solver, [puzzles for _ in range(p_count)])
+    with Pool(processes=p_count) as pool:
+        puzzles = Game.create_puzzle_set(filename="puzzles/lichess_db_puzzle.csv", type="mateIn1")
+        pool.map(puzzle_solver, [puzzles for _ in range(p_count)])
     
     

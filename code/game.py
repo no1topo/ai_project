@@ -46,15 +46,15 @@ class Game:
         # add a new memory entry
         self.memory.append([])
         # show the board
-        logging.info(f"\n{self.env.board}")
+        # logging.info(f"\n{self.env.board}")
         # counter to check amount of moves played. if above limit, estimate winner
         counter, previous_edges, full_game = 0, (None, None), True
         while not self.env.board.is_game_over():
             # play one move (previous move is used for updating the MCTS tree)
             previous_edges = self.play_move(stochastic=stochastic, previous_moves=previous_edges)
-            logging.info(f"\n{self.env.board}")
-            logging.info(f"Value according to white: {self.white.mcts.root.value}")
-            logging.info(f"Value according to black: {self.black.mcts.root.value}")
+            # logging.info(f"\n{self.env.board}")
+            # logging.info(f"Value according to white: {self.white.mcts.root.value}")
+            # logging.info(f"Value according to black: {self.black.mcts.root.value}")
             if os.environ.get("SELFPLAY_SHOW_BOARD") == "true":
                 self.GUI.gameboard.board.set_fen(self.env.board.fen()) 
                 self.GUI.draw()

@@ -45,7 +45,7 @@ class MCTS:
         2) expand and evaluate
         3) backpropagate
         """
-        for _ in tqdm(range(n)):
+        for _ in tqdm(range(n), disable=True):
             self.game_path = []
 
             # traverse the tree by selecting edges with max Q+U
